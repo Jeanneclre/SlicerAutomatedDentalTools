@@ -16,6 +16,15 @@ from AREG_Methode.CBCT import Semi_CBCT, Auto_CBCT, Or_Auto_CBCT
 from AREG_Methode.Methode import Methode
 from AREG_Methode.Progress import Display
 
+from slicer.util import pip_install
+try : 
+    import itk
+    if itk.__version__!="5.3.0":
+        pip_install("itk==5.3.0")
+    import itk
+except:
+    pip_install("itk==5.3.0")
+    import itk
 
 class AREG(ScriptedLoadableModule):
     """Uses ScriptedLoadableModule base class, available at:

@@ -18,11 +18,26 @@ from slicer.util import pip_install, pip_uninstall
 
 from pkg_resources import working_set
 
-if "itk-elastix" in [f"{i.key}" for i in working_set]:
+import pkg_resources
+try: 
+    for dist in pkg_resources.working_set:
+        if dist.project_name == "itk-elastix" and dist.version != "0.17.1":
+            pip_install("itk-elastix==0.17.1 -q")
+            import itk
+        elif dist.project_name == "itk-elastix" and dist.version == "0.17.1":
+            import itk
+except:
+    pip_install("itk-elastix==0.17.1 -q")
     import itk
-else:
-    pip_install("itk-elastix -q")
-    import itk
+            
+    
+
+# if "itk-elastix" in [f"{i.key}" for i in working_set]:
+#     import itk
+# else:
+#     # pip_install("itk-elastix -q")
+#     pip_install("itk-elastix==0.17.1 -q")
+#     import itk
 
 try:
     import dicom2nifti
@@ -492,7 +507,6 @@ def VoxelBasedRegistration(
     SegLabel=None,
 ):
     """Perform a voxel-based registration using elastix"""
-
     # Read images and segmentations
     fixed_image = itk.imread(fixed_image_path, itk.F)
     moving_image = itk.imread(moving_image_path, itk.F)
