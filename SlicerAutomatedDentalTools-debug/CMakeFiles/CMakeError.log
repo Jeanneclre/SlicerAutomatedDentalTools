@@ -1,0 +1,17 @@
+Determining if the CXX compiler accepts the flag -features=no%anachronisms passed with the following output:
+Change Dir: '/home/luciacev/Desktop/Jeanne_Claret/SlicerAutomatedDentalTools/SlicerAutomatedDentalTools-debug/CMakeFiles/CMakeTmp'
+
+Run Build Command(s): /opt/cmake-3.28.1/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_18b4f/fast
+/usr/bin/gmake  -f CMakeFiles/cmTC_18b4f.dir/build.make CMakeFiles/cmTC_18b4f.dir/build
+gmake[1]: Entering directory '/home/luciacev/Desktop/Jeanne_Claret/SlicerAutomatedDentalTools/SlicerAutomatedDentalTools-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_18b4f.dir/src.cxx.o
+/usr/bin/c++   -features=no%anachronisms -std=c++17 -o CMakeFiles/cmTC_18b4f.dir/src.cxx.o -c /home/luciacev/Desktop/Jeanne_Claret/SlicerAutomatedDentalTools/SlicerAutomatedDentalTools-debug/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command-line option ‘-features=no%anachronisms’
+gmake[1]: *** [CMakeFiles/cmTC_18b4f.dir/build.make:78: CMakeFiles/cmTC_18b4f.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/home/luciacev/Desktop/Jeanne_Claret/SlicerAutomatedDentalTools/SlicerAutomatedDentalTools-debug/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_18b4f/fast] Error 2
+
+
+Source file was:
+int main() { return 0;}
+
